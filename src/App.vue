@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <graph></graph>
   </div>
 </template>
 
 <script>
+import Graph from './components/graph';
+import Chart from 'chart.js'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Graph
+  }
 }
 </script>
 
