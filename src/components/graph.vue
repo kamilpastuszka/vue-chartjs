@@ -1,10 +1,19 @@
 <template>
   <div id="app">
+    <h2>
+      Population in 2017 and forecast for 2050 of EU biggest member states </br> (in
+      millions)
+    </h2>
+    <br>
     <div id="main"><canvas ref="chartjs"></canvas></div>
+      <p><strong>Source:</strong> Statista.com (data as of November 2018)</p>
   </div>
+
 </template>
 
 <script>
+import _ from "lodash";
+
 export default {
   name: "Graph",
   data() {
@@ -37,9 +46,14 @@ export default {
   },
 
   mounted() {
-    let coutries = Object.keys(this.population2017),
+    const coutries = Object.keys(this.population2017),
       data2017 = Object.values(this.population2017),
       data2050 = Object.values(this.population2050);
+
+    const backgroundColor2017 = _.times(10, () => "rgba(149, 127, 113, 1.0)"),
+      backgroundColor2050 = _.times(10, () => "rgba(255, 206, 86, 0.2)"),
+      borderColor2017 = _.times(10, () => "rgba(101,67,33, 1.00)"),
+      borderColor2050 = _.times(10, () => "rgba(255, 206, 86, 1)");
 
     const chart = this.$refs.chartjs,
       ctx = chart.getContext("2d"),
@@ -51,64 +65,16 @@ export default {
             {
               label: "Population in 2017",
               data: data2017,
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)"
-              ],
-              borderColor: [
-                "rgba(255,99,132,1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255,99,132,1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)"
-              ],
-              borderWidth: 2
+              backgroundColor: backgroundColor2017,
+              borderColor: borderColor2017,
+              borderWidth: 0.5
             },
             {
               label: "Projection for 2050",
               data: data2050,
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)"
-              ],
-              borderColor: [
-                "rgba(255,99,132,1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255,99,132,1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)"
-              ],
-              borderWidth: 1
+              backgroundColor: backgroundColor2050,
+              borderColor: borderColor2050,
+              borderWidth: 0.5
             }
           ]
         },
@@ -130,8 +96,11 @@ export default {
   }
 };
 </script>
+
 <style scoped>
-#main {
-  max-width: 900px;
+#app {
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 200px;
 }
 </style>
