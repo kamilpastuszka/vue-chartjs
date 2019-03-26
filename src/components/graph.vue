@@ -104,9 +104,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  allign-items: centre;
   margin: 0 auto;
-
+  height: 100vh;
 }
 @media (max-width: 768px) 
 {
