@@ -50,10 +50,11 @@ export default {
       data2017 = Object.values(this.population2017),
       data2050 = Object.values(this.population2050);
 
-    const backgroundColor2017 = _.times(10, () => "rgba(149, 127, 113, 1.0)"),
-      backgroundColor2050 = _.times(10, () => "rgba(255, 206, 86, 0.2)"),
-      borderColor2017 = _.times(10, () => "rgba(101,67,33, 1.00)"),
-      borderColor2050 = _.times(10, () => "rgba(255, 206, 86, 1)");
+    const backgroundColor2017 = _.times(10, () => "#30336b"),
+     backgroundColor2050 = _.times(10, () => "#4b7bec"),
+     //backgroundColor2050 = _.times(10, () => "#95afc0"),
+     borderColor2017 = _.times(10, () => "#130f40"),
+      borderColor2050 = _.times(10, () => "#4b6584");
 
     const chart = this.$refs.chartjs,
       ctx = chart.getContext("2d"),
@@ -99,8 +100,21 @@ export default {
 
 <style scoped>
 #app {
-  width: 900px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  allign-items: centre;
   margin: 0 auto;
-  margin-top: 200px;
+
+}
+@media (max-width: 768px) 
+{
+  h2 {
+  font-size: 1em;
+  } 
+  p {
+    font-size: 0.8em;
+  }
 }
 </style>
