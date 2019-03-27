@@ -6,7 +6,7 @@
     </h2>
     <br>
     <div id="main"><canvas ref="chartjs"></canvas></div>
-      <p><strong>Source:</strong> Statista.com (data as of November 2018)</p>
+      <p><strong>Source:</strong> Statista.com (data as of November 2017)</p>
   </div>
 
 </template>

@@ -14,4 +14,4 @@ npm run dev
 
 ## Image
 
-<img src="img.png" width="700px">
+<img src="img.png" width="800px">
